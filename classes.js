@@ -46,15 +46,21 @@ console.log({car})
    }
    calculateRentalDuration(){
     const oneDay = 24 * 60 * 60 * 1000; 
-    const startDate = this.rentalStartDate.getTime();
-    const endDate = this.rentalEndDate.getTime();
+    const startDate = new Date(this.rentalStartDate)
+    const endDate = new Date(this.rentalEndDate)
     const durationInDays = Math.round(Math.abs((endDate - startDate) / oneDay));
     return durationInDays;
    }
-   
+  
+ 
+
  }
- let rental = new Rental('Toyota','Belyse',1999,2023);
+ let rentalStartDate = new Date("2020-03-18");
+ let rentalEndDate = new Date("2023-04-02");
+
+ let rental = new Rental('Toyota','Belyse',rentalEndDate,rentalStartDate);
  console.log({rental})
+
 
  
 
